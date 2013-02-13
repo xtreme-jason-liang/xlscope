@@ -18,4 +18,6 @@
 @property (strong, nonatomic) UIViewController *leftController;
 @property (strong, nonatomic) UIViewController *rightController;
 
+@property (strong, nonatomic) UIWindow *overlayWindow;
+
 @end

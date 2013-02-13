@@ -51,7 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(estimateCompleted)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -117,5 +117,12 @@
 //- (CGFloat)collectionView:(PSUICollectionView *)collectionView layout:(PSUICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
 //    return 0;
 //}
+
+#pragma mark -
+
+- (void)estimateCompleted {
+    [[EstimateManager sharedInstance] completeNumbers];
+    
+}
 
 @end

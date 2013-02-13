@@ -16,7 +16,14 @@
 @property (nonatomic, strong) NSMutableArray *numbers;
 @property (nonatomic, strong) NSMutableDictionary *selectedNumbers;
 
+
+@property (nonatomic, strong) NSNumber *numberO;
+@property (nonatomic, strong) NSNumber *numberN;
+@property (nonatomic, strong) NSNumber *numberP;
+
 - (void)selectNumber:(NSNumber*)number;
 - (void)deselectNumber:(NSNumber*)number;
 - (BOOL)isNumberSelected:(NSNumber*)number;
+
+- (void)completeNumbers;
 @end

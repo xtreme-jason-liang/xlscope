@@ -50,4 +50,22 @@ static EstimateManager *instance;
     return [self.selectedNumbers objectForKey:number] != nil;
 }
 
+- (void)completeNumbers {
+    NSArray *numbers = [[[self selectedNumbers] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1 compare:obj2];
+    }];
+    if ([numbers count] == 0) {
+        self.numberN = self.numberO = self.numberP = @0;
+    } else if ([numbers count] == 1) {
+        self.numberN = self.numberO = self.numberP = [numbers objectAtIndex:0];
+    } else if ([numbers count] == 2) {
+        self.numberN = self.numberO = [numbers objectAtIndex:0];
+        self.numberP = [numbers objectAtIndex:1];
+    } else if ([numbers count] == 3) {
+        self.numberO = [numbers objectAtIndex:0];
+        self.numberN = [numbers objectAtIndex:1];
+        self.numberP = [numbers objectAtIndex:2];
+    }
+}
+
 @end

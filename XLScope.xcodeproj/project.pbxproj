@@ -45,6 +45,9 @@
 		4FBDA68E16CB186B0031CBBA /* EstimateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDA68D16CB186B0031CBBA /* EstimateManager.m */; };
 		4FBDA69216CB20C00031CBBA /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDA69116CB20C00031CBBA /* Cell.m */; };
 		4FBDA69516CB22180031CBBA /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDA69416CB22180031CBBA /* CustomCellBackground.m */; };
+		4FBDA69916CB35E50031CBBA /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDA69816CB35E50031CBBA /* Utility.m */; };
+		4FBDA69E16CB368C0031CBBA /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBDA69C16CB368C0031CBBA /* ResultsViewController.m */; };
+		4FBDA69F16CB368C0031CBBA /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBDA69D16CB368C0031CBBA /* ResultsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +117,11 @@
 		4FBDA69116CB20C00031CBBA /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		4FBDA69316CB22180031CBBA /* CustomCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellBackground.h; sourceTree = "<group>"; };
 		4FBDA69416CB22180031CBBA /* CustomCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellBackground.m; sourceTree = "<group>"; };
+		4FBDA69716CB35E50031CBBA /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		4FBDA69816CB35E50031CBBA /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		4FBDA69B16CB368C0031CBBA /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		4FBDA69C16CB368C0031CBBA /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		4FBDA69D16CB368C0031CBBA /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,23 +172,12 @@
 		4FBDA62116CACDE50031CBBA /* XLScope */ = {
 			isa = PBXGroup;
 			children = (
+				4FBDA69616CB35D90031CBBA /* Utilities */,
 				4FBDA68F16CB209F0031CBBA /* Views */,
 				4FBDA68B16CB184D0031CBBA /* ViewControllers */,
 				4FBDA68A16CB183F0031CBBA /* Models */,
 				4FBDA62A16CACDE50031CBBA /* AppDelegate.h */,
 				4FBDA62B16CACDE50031CBBA /* AppDelegate.m */,
-				4FBDA63316CACDE50031CBBA /* ViewController.h */,
-				4FBDA63416CACDE50031CBBA /* ViewController.m */,
-				4FBDA65816CB10B30031CBBA /* ViewController.xib */,
-				4FBDA64C16CB086D0031CBBA /* LeftViewController.h */,
-				4FBDA64D16CB086D0031CBBA /* LeftViewController.m */,
-				4FBDA64E16CB086D0031CBBA /* LeftViewController.xib */,
-				4FBDA65116CB08900031CBBA /* RightViewController.h */,
-				4FBDA65216CB08900031CBBA /* RightViewController.m */,
-				4FBDA65316CB08900031CBBA /* RightViewController.xib */,
-				4FBDA68516CB16AF0031CBBA /* CenterViewController.h */,
-				4FBDA68616CB16AF0031CBBA /* CenterViewController.m */,
-				4FBDA68716CB16AF0031CBBA /* CenterViewController.xib */,
 			);
 			path = XLScope;
 			sourceTree = "<group>";
@@ -270,6 +267,19 @@
 		4FBDA68B16CB184D0031CBBA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4FBDA69A16CB367A0031CBBA /* Result */,
+				4FBDA63316CACDE50031CBBA /* ViewController.h */,
+				4FBDA63416CACDE50031CBBA /* ViewController.m */,
+				4FBDA65816CB10B30031CBBA /* ViewController.xib */,
+				4FBDA64C16CB086D0031CBBA /* LeftViewController.h */,
+				4FBDA64D16CB086D0031CBBA /* LeftViewController.m */,
+				4FBDA64E16CB086D0031CBBA /* LeftViewController.xib */,
+				4FBDA65116CB08900031CBBA /* RightViewController.h */,
+				4FBDA65216CB08900031CBBA /* RightViewController.m */,
+				4FBDA65316CB08900031CBBA /* RightViewController.xib */,
+				4FBDA68516CB16AF0031CBBA /* CenterViewController.h */,
+				4FBDA68616CB16AF0031CBBA /* CenterViewController.m */,
+				4FBDA68716CB16AF0031CBBA /* CenterViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -283,6 +293,25 @@
 				4FBDA69416CB22180031CBBA /* CustomCellBackground.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		4FBDA69616CB35D90031CBBA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4FBDA69716CB35E50031CBBA /* Utility.h */,
+				4FBDA69816CB35E50031CBBA /* Utility.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		4FBDA69A16CB367A0031CBBA /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				4FBDA69B16CB368C0031CBBA /* ResultsViewController.h */,
+				4FBDA69C16CB368C0031CBBA /* ResultsViewController.m */,
+				4FBDA69D16CB368C0031CBBA /* ResultsViewController.xib */,
+			);
+			name = Result;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +374,7 @@
 				4FBDA65916CB10B30031CBBA /* ViewController.xib in Resources */,
 				4FBDA67716CB15AA0031CBBA /* LICENSE in Resources */,
 				4FBDA68916CB16AF0031CBBA /* CenterViewController.xib in Resources */,
+				4FBDA69F16CB368C0031CBBA /* ResultsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +410,8 @@
 				4FBDA68E16CB186B0031CBBA /* EstimateManager.m in Sources */,
 				4FBDA69216CB20C00031CBBA /* Cell.m in Sources */,
 				4FBDA69516CB22180031CBBA /* CustomCellBackground.m in Sources */,
+				4FBDA69916CB35E50031CBBA /* Utility.m in Sources */,
+				4FBDA69E16CB368C0031CBBA /* ResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
