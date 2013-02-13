@@ -68,10 +68,40 @@
 
 - (PSUICollectionViewCell *)collectionView:(PSUICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    NSNumber *number = [[[EstimateManager sharedInstance] numbers] objectAtIndex:indexPath.row];
+    EstimateManager *mgr = [EstimateManager sharedInstance];
+    NSNumber *number = [[mgr numbers] objectAtIndex:indexPath.row];
     cell.label.text = [NSString stringWithFormat:@"%@", number];
-    cell.backgroundColor = indexPath.row%2==0 ? [UIColor lightGrayColor] : [UIColor whiteColor];
+    BOOL isSelected = [mgr isNumberSelected:number];
+    cell.backgroundColor = isSelected ? [UIColor lightGrayColor] : [UIColor whiteColor];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    EstimateManager *mgr = [EstimateManager sharedInstance];
+    NSNumber *number = [[mgr numbers] objectAtIndex:indexPath.row];
+    NSNumber *selected = [[mgr selectedNumbers] objectForKey:number];
+    if (selected) {
+        [mgr deselectNumber:number];
+        [collectionView reloadData];
+        return;
+    } else {
+        
+        if ([[mgr selectedNumbers] count] >= 3) {
+            NSArray *numbers = [[[mgr selectedNumbers] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                return [obj1 compare:obj2];
+            }];
+            if ([selected floatValue] < [[numbers objectAtIndex:0] floatValue]) {
+                [mgr deselectNumber:[numbers objectAtIndex:0]];
+            } else if ([selected floatValue] > [[numbers objectAtIndex:2] floatValue]) {
+                [mgr deselectNumber:[numbers objectAtIndex:2]];
+            } else {
+                [mgr deselectNumber:[numbers objectAtIndex:1]];
+            }
+        }
+        
+        [mgr selectNumber:number];
+        [collectionView reloadData];
+    }
 }
 
 #pragma mark - PSTCollectionViewDelegateFlowLayout

@@ -18,5 +18,5 @@
 
 - (void)selectNumber:(NSNumber*)number;
 - (void)deselectNumber:(NSNumber*)number;
-
+- (BOOL)isNumberSelected:(NSNumber*)number;
 @end

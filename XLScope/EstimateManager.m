@@ -46,4 +46,8 @@ static EstimateManager *instance;
     [self.selectedNumbers removeObjectForKey:number];
 }
 
+- (BOOL)isNumberSelected:(NSNumber*)number {
+    return [self.selectedNumbers objectForKey:number] != nil;
+}
+
 @end
