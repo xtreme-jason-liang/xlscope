@@ -7,6 +7,9 @@
 //
 
 #import "ResultsViewController.h"
+#import "Utility.h"
+#import "EstimateManager.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ResultsViewController ()
 
@@ -26,7 +29,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.labelO.layer.cornerRadius = 10;
+    self.labelN.layer.cornerRadius = 10;
+    self.labelP.layer.cornerRadius = 10;
+    
+    [self.view addSubview:self.coverView];
+    self.coverView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    EstimateManager *mgr = [EstimateManager sharedInstance];
+    self.labelO.text = [NSString stringWithFormat:@"Optimistic : %@", mgr.numberO];
+    self.labelN.text = [NSString stringWithFormat:@"Nominal : %@", mgr.numberN];
+    self.labelP.text = [NSString stringWithFormat:@"Pessimistic : %@", mgr.numberP];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +48,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setLabelO:nil];
+    [self setLabelN:nil];
+    [self setLabelP:nil];
+    [super viewDidUnload];
+}
+- (IBAction)coverTapped:(id)sender {
+    [UIView animateWithDuration:0.25f animations:^{
+        self.coverView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.coverView.hidden = YES;
+    }];
+}
+
+- (IBAction)dismissTapped:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+    [[[EstimateManager sharedInstance] selectedNumbers] removeAllObjects];
+}
 @end

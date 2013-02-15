@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *label;
 
+- (void)setSelectedState:(BOOL)selected;
+
 @end

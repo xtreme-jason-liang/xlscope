@@ -9,6 +9,8 @@
 #import "CenterViewController.h"
 #import "EstimateManager.h"
 #import "Cell.h"
+#import "Utility.h"
+#import "ResultsViewController.h"
 
 @interface CenterViewController ()
 
@@ -29,8 +31,7 @@
 - (void)initCollectionView {
 
     PSUICollectionViewFlowLayout *collectionViewFlowLayout = [[PSUICollectionViewFlowLayout alloc] init];
-    [collectionViewFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    
+    [collectionViewFlowLayout setScrollDirection:PSTCollectionViewScrollDirectionVertical];
     [collectionViewFlowLayout setItemSize:CGSizeMake(100, 100)];
     [collectionViewFlowLayout setHeaderReferenceSize:CGSizeMake(320, 0)];
     [collectionViewFlowLayout setFooterReferenceSize:CGSizeMake(320, 0)];
@@ -38,12 +39,11 @@
     [collectionViewFlowLayout setMinimumLineSpacing:5];
     
     self.collectionView = [[PSUICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:collectionViewFlowLayout];
-//    self.collectionView.dataSource = self;
-//    self.collectionView.delegate = self;
     [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"cell"];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = [UIColor yellowColor];
+    self.collectionView.backgroundColor = [UIColor lightGrayColor];
+//    self.collectionView.backgroundColor = [UIColor yellowColor];
     self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.collectionView];
 }
@@ -51,7 +51,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Trivariance";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(estimateCompleted)];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,7 +78,8 @@
     NSNumber *number = [[mgr numbers] objectAtIndex:indexPath.row];
     cell.label.text = [NSString stringWithFormat:@"%@", number];
     BOOL isSelected = [mgr isNumberSelected:number];
-    cell.backgroundColor = isSelected ? [UIColor lightGrayColor] : [UIColor whiteColor];
+    [cell setSelectedState:isSelected];
+//    cell.backgroundColor = isSelected ? [UIColor lightGrayColor] : [UIColor whiteColor];
     return cell;
 }
 
@@ -85,14 +92,13 @@
         [collectionView reloadData];
         return;
     } else {
-        
         if ([[mgr selectedNumbers] count] >= 3) {
             NSArray *numbers = [[[mgr selectedNumbers] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
                 return [obj1 compare:obj2];
             }];
-            if ([selected floatValue] < [[numbers objectAtIndex:0] floatValue]) {
+            if ([number floatValue] < [[numbers objectAtIndex:1] floatValue]) {
                 [mgr deselectNumber:[numbers objectAtIndex:0]];
-            } else if ([selected floatValue] > [[numbers objectAtIndex:2] floatValue]) {
+            } else if ([number floatValue] > [[numbers objectAtIndex:1] floatValue]) {
                 [mgr deselectNumber:[numbers objectAtIndex:2]];
             } else {
                 [mgr deselectNumber:[numbers objectAtIndex:1]];
@@ -121,8 +127,15 @@
 #pragma mark -
 
 - (void)estimateCompleted {
-    [[EstimateManager sharedInstance] completeNumbers];
+    EstimateManager *mgr = [EstimateManager sharedInstance];
+    [mgr completeNumbers];
+//    UIWindow *window = [Utility getAppDelegateOverlayWindow];
+    ResultsViewController *vc = [[ResultsViewController alloc] initWithNibName:@"ResultsViewController" bundle:nil];
+
     
+    [self.navigationController presentModalViewController:vc animated:YES];
+    
+//    [window addSubview:vc.view];
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FA422CA16CC787D00E8B7BA /* logo_navbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FA422C916CC787D00E8B7BA /* logo_navbtn.png */; };
 		4FBDA61C16CACDE50031CBBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBDA61B16CACDE50031CBBA /* UIKit.framework */; };
 		4FBDA61E16CACDE50031CBBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBDA61D16CACDE50031CBBA /* Foundation.framework */; };
 		4FBDA62016CACDE50031CBBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBDA61F16CACDE50031CBBA /* CoreGraphics.framework */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4FA422C916CC787D00E8B7BA /* logo_navbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_navbtn.png; sourceTree = "<group>"; };
 		4FBDA61816CACDE50031CBBA /* XLScope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLScope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FBDA61B16CACDE50031CBBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4FBDA61D16CACDE50031CBBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -142,6 +144,7 @@
 		4FBDA60F16CACDE50031CBBA = {
 			isa = PBXGroup;
 			children = (
+				4FA422C916CC787D00E8B7BA /* logo_navbtn.png */,
 				4FBDA62116CACDE50031CBBA /* XLScope */,
 				4FBDA62216CACDE50031CBBA /* Supporting Files */,
 				4FBDA61A16CACDE50031CBBA /* Frameworks */,
@@ -375,6 +378,7 @@
 				4FBDA67716CB15AA0031CBBA /* LICENSE in Resources */,
 				4FBDA68916CB16AF0031CBBA /* CenterViewController.xib in Resources */,
 				4FBDA69F16CB368C0031CBBA /* ResultsViewController.xib in Resources */,
+				4FA422CA16CC787D00E8B7BA /* logo_navbtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +445,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sundeep Madra (CCYAA8F3ND)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -456,6 +461,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "1F6D593F-CA5E-47F7-BCF2-7B1250758B92";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -473,6 +479,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sundeep Madra (CCYAA8F3ND)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -481,6 +488,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "1F6D593F-CA5E-47F7-BCF2-7B1250758B92";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -493,6 +501,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XLScope/XLScope-Prefix.pch";
 				INFOPLIST_FILE = "XLScope/XLScope-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -504,6 +513,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XLScope/XLScope-Prefix.pch";
 				INFOPLIST_FILE = "XLScope/XLScope-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

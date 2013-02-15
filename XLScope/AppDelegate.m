@@ -29,7 +29,7 @@
     self.leftController = [[LeftViewController alloc] initWithNibName:@"LeftViewController" bundle:nil];
     self.rightController = [[RightViewController alloc] initWithNibName:@"RightViewController" bundle:nil];
     
-    CenterViewController *centerController = [[CenterViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    CenterViewController *centerController = [[CenterViewController alloc] initWithNibName:@"CenterViewController" bundle:nil];
     self.viewController = [[UINavigationController alloc] initWithRootViewController:centerController];
     
     IIViewDeckController *deckController = [[IIViewDeckController alloc] initWithCenterViewController:self.viewController leftViewController:self.leftController];

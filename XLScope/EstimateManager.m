@@ -30,7 +30,7 @@ static EstimateManager *instance;
 }
 
 - (void)initDefaultNumbers {
-    self.numbers = [[NSMutableArray alloc] initWithArray:@[@0, @0.5,@1,@1.5,@2,@2.5,@3,@4,@5,@6,@7,@8,@9,@10,@15,@20]];
+    self.numbers = [[NSMutableArray alloc] initWithArray:@[@0, @0.5,@1,@1.5,@2,@2.5,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@18,@19,@20,@100]];
     self.selectedNumbers = [[NSMutableDictionary alloc] initWithCapacity:3];
 }
 
